@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-slate-800 transition-colors duration-300 overflow-x-hidden selection:bg-brand-500/30;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #fae8ff 100%);
+  }
+  
+  .dark body {
+    @apply text-slate-200 selection:bg-brand-500/30;
+    background: linear-gradient(135deg, #020617 0%, #1e1b4b 50%, #312e81 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-blue-600 dark:from-brand-400 dark:to-blue-400;
+  }
+  
+  .glass-nav {
+    @apply shadow-sm;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .glass-nav {
+    @apply shadow-none;
+    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Option 4 Glassmorphism Cards */
+  .glass-panel {
+    @apply shadow-sm transition-all duration-300;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .glass-panel {
+    @apply shadow-none;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .dark .glass-panel:hover {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-badge {
+    @apply flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-full font-medium transition-colors;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #334155;
+  }
+  .dark .glass-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+  }
+
+  /* Developer Grid Background */
+  .bg-developer-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  }
+  
+  .dark .bg-developer-grid {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  }
+}
